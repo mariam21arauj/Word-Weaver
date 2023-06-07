@@ -9,7 +9,7 @@ import ThesaurusPage from '../ThesaurusPage/ThesaurusPage';
 import NavBar from '../../components/NavBar/NavBar';
 
 export default function App() {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState(null)
   return (
     <main className="App">
       {
@@ -20,7 +20,7 @@ export default function App() {
            <Route path='/' element={<MainPage/>}/>
            <Route path='/dictionary' element={<DictionaryPage/>}/>
            <Route path='/favorites' element={<FavoriteWordsPage/>}/>
-           <Route path='/Thesaurus' element={<ThesaurusPage/>}/>
+           <Route path='/thesaurus' element={<ThesaurusPage/>}/>
         </Routes>
         </>
        
