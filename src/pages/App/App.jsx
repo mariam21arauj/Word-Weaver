@@ -3,11 +3,9 @@ import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import MainPage from '../MainPage/MainPage';
 import { Route, Routes } from 'react-router-dom';
-import DefinitionsPage from '../DefinitionsPage/DefinitionsPage';
-import ExamplesPage from '../ExamplesPage/ExamplesPage';
+import DictionaryPage from '../DictionaryPage/DictionaryPage';
 import FavoriteWordsPage from '../FavoriteWordsPage/FavoriteWordsPage';
-import SynonymousPage from '../SynonymousPage/SynonymousPage';
-import AntonymousPage from '../AntonymousPage/AntonymousPage';
+import ThesaurusPage from '../ThesaurusPage/ThesaurusPage';
 import NavBar from '../../components/NavBar/NavBar';
 
 export default function App() {
@@ -20,11 +18,9 @@ export default function App() {
         <NavBar/>
         <Routes>
            <Route path='/' element={<MainPage/>}/>
-           <Route path='/definitions' element={<DefinitionsPage/>}/>
-           <Route path='/examples' element={<ExamplesPage/>}/>
+           <Route path='/dictionary' element={<DictionaryPage/>}/>
            <Route path='/favorites' element={<FavoriteWordsPage/>}/>
-           <Route path='/synonymous' element={<SynonymousPage/>}/>
-           <Route path='/antonymous' element={<AntonymousPage/>}/>
+           <Route path='/Thesaurus' element={<ThesaurusPage/>}/>
         </Routes>
         </>
        
