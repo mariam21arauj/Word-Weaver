@@ -8,12 +8,16 @@ import ExamplesPage from '../ExamplesPage/ExamplesPage';
 import FavoriteWordsPage from '../FavoriteWordsPage/FavoriteWordsPage';
 import SynonymousPage from '../SynonymousPage/SynonymousPage';
 import AntonymousPage from '../AntonymousPage/AntonymousPage';
+import NavBar from '../../components/NavBar/NavBar';
+
 export default function App() {
   const [user, setUser] = useState({})
   return (
     <main className="App">
       {
         user ? 
+        <>
+        <NavBar/>
         <Routes>
            <Route path='/' element={<MainPage/>}/>
            <Route path='/definitions' element={<DefinitionsPage/>}/>
@@ -22,6 +26,8 @@ export default function App() {
            <Route path='/synonymous' element={<SynonymousPage/>}/>
            <Route path='/antonymous' element={<AntonymousPage/>}/>
         </Routes>
+        </>
+       
         :
         <AuthPage/>
       }
