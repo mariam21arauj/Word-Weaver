@@ -1,12 +1,12 @@
 // AuthPage.jsx
 
-import SignupForm from "../../components/SignUpForm/SignupForm";
+import SignUpForm from "../../components/SignUpForm/SignUpForm";
 
 export default function AuthPage() {
   return (
     <main>
       <h1>AuthPage</h1>
-      <SignupForm />
+      <SignUpForm />
     </main>
   );
 }
