@@ -24,16 +24,11 @@ async function create(req, res) {
 
 async function login(req, res) {
   try {
-    // console.log(req.body)
     const user = await User.findOne({ email: req.body.email });
-    // console.log(user)
     if (!user) res.status(400).json(error);
     const match = await bcrypt.compare(req.body.password, user.password);
-    // console.log(req.body.password, )
-    // console.log(match)
     if (!match) res.status(400).json(error);
     const token = createJWT(user)
-    // console.log(token)
     res.json(token);
   } catch(error) {
     res.status(400).json('Bad Credentials');
