@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 
-export default function NavBar(){
+export default function NavBar({ user, setUser }){
     return(
         <nav>
+            <span>&nbsp; So good to see you, {user.name}!</span>
             <Link to="/">Main</Link>
             &nbsp; | &nbsp;
             <Link to='/definitions'>Defintitions</Link>
