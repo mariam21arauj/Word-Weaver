@@ -7,7 +7,7 @@ export async function signUp(userData) {
     // which will ultimately return a JSON Web Token (JWT)
     const token = await usersAPI.signUp(userData);
     localStorage.setItem('token', token)
-    return token;
+    return getUser;
 }
 
 // users-service.js
