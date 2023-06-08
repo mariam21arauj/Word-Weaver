@@ -33,3 +33,12 @@ export function getToken() {
     return token ? JSON.parse(atob(token.split('.')[1])).user : null;
   }
   
+export function logOut(){
+    localStorage.removeItem('token');
+}
+
+export async function login(userData) {
+  const token = await usersAPI.login(userData);
+  localStorage.setItem("token", token);
+  return getUser();
+}

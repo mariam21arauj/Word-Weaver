@@ -12,10 +12,11 @@ import NavBar from '../../components/NavBar/NavBar';
 export default function App() {
   const [user, setUser] = useState(getUser());
   return (
-    <main className="App">
+    <div>
+      <main className="App">
       {
-        user ? 
-        <>
+        user ? (
+          <>
         <NavBar user={user} setUser={setUser}/>
         <Routes>
            <Route path='/' element={<MainPage/>}/>
@@ -24,12 +25,12 @@ export default function App() {
            <Route path='/thesaurus' element={<ThesaurusPage/>}/>
         </Routes>
         </>
-       
-        :
-        <AuthPage/>
-      }
-
+        ):(
+          <AuthPage setUser={setUser}/>
+      )}
     </main>
+    </div>
+    
   );
 }
 
