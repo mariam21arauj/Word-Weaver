@@ -3,6 +3,11 @@ const Schema = mongoose.Schema;
 const SALT_ROUNDS = 6
 const bcrypt = require('bcrypt')
 
+const favoriteWordSchema = new Schema ({
+  word: {type: String, required: true},
+  definition: {type: String, required: true}
+})
+
 const userSchema = new Schema({
     name: {type: String, required: true},
     email: {
@@ -25,7 +30,8 @@ const userSchema = new Schema({
           delete ret.password;
           return ret;
         }
-    }
+    },
+    favoriteWord: [favoriteWordSchema]
 });
 
 // models/user.sj

@@ -49,16 +49,16 @@ export default function SearchBarCard() {
             </label>
             <button onClick={handleSearch}>Search</button>
             <ul>
-            {searchType === 'dictionary' ? (
-                searchResults.results.map((result) => (
-                    <li key={result.word}>{result.definition}</li>
-                ))
-            ) : (
+                {searchResults && searchResults.results && searchResults.results.length > 0 ? (
                     searchResults.results.map((result) => (
-                    <li key={result.word}>{result.synonyms}</li>
-                ))
-            )}
-            </ul>
+                        <li key={result.word}>
+                            {searchType === 'dictionary' ? result.definition : result.synonyms}
+                        </li>
+                    ))
+                ) : (
+                    <li>No results found.</li>
+                )}
+        </ul>
         </div>
     )
 }
