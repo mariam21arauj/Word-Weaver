@@ -5,6 +5,7 @@ export default function SearchBarCard() {
     const [searchResults, setSearchResults] = useState([]);
     const [searchType, setSearchType] = useState('dictionary')
 
+
     const handleSearch = async() => {
         try {
             const response = await fetch(
@@ -49,6 +50,7 @@ export default function SearchBarCard() {
             </label>
             <button onClick={handleSearch}>Search</button>
             <ul>
+                {/* Previus commit also changed this */}
                 {searchResults && searchResults.results && searchResults.results.length > 0 ? (
                     searchResults.results.map((result) => (
                         <li key={result.word}>
