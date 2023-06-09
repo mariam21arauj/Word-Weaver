@@ -1,9 +1,12 @@
 const User = require('../../models/user')
 const jwt = require ('jsonwebtoken')
 const bcrypt = require('bcrypt')
+
+
 module.exports = {
     create,
-    login
+    login,
+    getData
   };
   
   // controllers/api/users.js
@@ -45,5 +48,23 @@ function createJWT(user) {
     process.env.SECRET,
     { expiresIn: '24h' }
   );
+}
+
+function getData(){
+  const options = {
+    method: 'GET',
+    url: 'https://wordsapiv1.p.rapidapi.com/words/house',
+    headers: {
+        'X-RapidAPI-Key':process.env.API_KEY,
+        'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
+    }
+};
+axios.request(options).then(function (response) {
+
+  return res.json(response.data);
+}).catch(function (error) {
+    console.error(error);
+});
+
 }
 
