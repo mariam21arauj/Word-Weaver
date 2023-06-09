@@ -17,28 +17,13 @@ app.use(cors())
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
 
-app.get('/api/:searchQuery', (req,res)=>{    
-  const options = {
-      method: 'GET',
-      url: `https://wordsapiv1.p.rapidapi.com/words/${req.params.searchQuery}`,
-      headers: {
-          'X-RapidAPI-Key':process.env.API_KEY,
-          'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
-      }
- };
-  axios.request(options).then(function (response) {
-      res.json(response.data);
-  }).catch(function (error) {
-      console.error(error);
-  });
-})
+app.use('/api/search', require('./routes/api/search'));
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
-
 
 
 
