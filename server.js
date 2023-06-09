@@ -17,10 +17,10 @@ app.use(cors())
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
 
-app.get('/api', (req,res)=>{    
+app.get('/api/:searchQuery', (req,res)=>{    
   const options = {
       method: 'GET',
-      url: 'https://wordsapiv1.p.rapidapi.com/words/house',
+      url: `https://wordsapiv1.p.rapidapi.com/words/${req.params.searchQuery}`,
       headers: {
           'X-RapidAPI-Key':process.env.API_KEY,
           'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
