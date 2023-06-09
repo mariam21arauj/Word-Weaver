@@ -1,12 +1,9 @@
-import { set } from 'mongoose';
 import React, { useState } from 'react'
-
 
 export default function SearchBarCard() {
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
-    const [dictionarySearch, setDictionarySearch] = useState(true)
-    const [thesaurusSearch, setThesaurusSearch] = useState(false)
+    const [searchType, setSearchType] = useState('dictionary')
 
     const handleSearch = async() => {
         try {
@@ -22,11 +19,9 @@ export default function SearchBarCard() {
 
     const handleChange = (e) => {
         if(e.target.name === 'dictionary') {
-            setDictionarySearch(true);
-            setThesaurusSearch(false)
+            setSearchType('dictionary')
         } else {
-            setDictionarySearch(false);
-            setThesaurusSearch(true)
+            setSearchType('thesaurus')
         }
     }
     console.log(searchResults)
@@ -41,21 +36,29 @@ export default function SearchBarCard() {
                 <input 
                 type='radio'
                 name='dictionary'
-                checked={dictionarySearch} onChange={handleChange}
+                checked={searchType === 'dictionary'} 
+                onChange={handleChange}
                 />
             </label>
             <label> Thesaurus
                 <input
                 type="radio"
                 name="thesaurus" 
-                checked={thesaurusSearch} onChange={handleChange} />
+                checked={searchType === 'thesaurus'} 
+                onChange={handleChange} />
             </label>
             <button onClick={handleSearch}>Search</button>
-            {/* <ul>
-                {searchResults.map(result => (
-                    <li key={result.word}>{result.word}</li>
-                ))}
-            </ul> */}
+            <ul>
+            {searchType === 'dictionary' ? (
+                searchResults.results.map((result) => (
+                    <li key={result.word}>{result.definition}</li>
+                ))
+            ) : (
+                    searchResults.results.map((result) => (
+                    <li key={result.word}>{result.synonyms}</li>
+                ))
+            )}
+            </ul>
         </div>
     )
 }
