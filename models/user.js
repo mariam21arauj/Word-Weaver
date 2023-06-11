@@ -5,7 +5,8 @@ const bcrypt = require('bcrypt')
 
 const favoriteWordSchema = new Schema ({
   word: {type: String, required: true},
-  definition: {type: String, required: true}
+  definition: {type: String, required: true},
+  example: {type: String, required: true},
 })
 
 const userSchema = new Schema({
