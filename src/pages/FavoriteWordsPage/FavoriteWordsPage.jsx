@@ -1,5 +1,14 @@
+import { useState } from "react"
+
 export default function FavoriteWordsPage(){
+    const [favoriteWord, setFavoriteWord] = useState([])
     return(
-        <h1>FavoriteWordsPage</h1>
+        <div>
+            <h1>Your Favorite Words</h1>
+            {/* <FavoriteWordListCard/>
+            <hr></hr>
+            <FavoriteWordForm/> */}
+        </div>
+        
     )
 }
