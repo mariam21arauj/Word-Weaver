@@ -1,13 +1,14 @@
 import { useState } from "react"
+import FavoriteWordForm from "../../components/FavoriteWordForm/FavoriteWordForm"
 
 export default function FavoriteWordsPage(){
     const [favoriteWord, setFavoriteWord] = useState([])
     return(
         <div>
             <h1>Your Favorite Words</h1>
-            {/* <FavoriteWordListCard/>
+            {/* <FavoriteWordListCard/> */}
             <hr></hr>
-            <FavoriteWordForm/> */}
+            <FavoriteWordForm/>
         </div>
         
     )
