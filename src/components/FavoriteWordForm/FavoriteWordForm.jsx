@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function FavoriteWordForm() {
+export default function FavoriteWordForm({setFavoriteWord}) {
     const [newFavoriteWord, setNewFavoriteWord] = useState({
         word: '',
         definition: '',
@@ -18,7 +18,7 @@ export default function FavoriteWordForm() {
 
     const handleAddFavoriteWord = (event) => {
         event.preventDefault()
-        setNewFavoriteWord(function(previusWordsArray) {
+        setFavoriteWord(function(previusWordsArray) {
             return [...previusWordsArray, newFavoriteWord]
         });
 
@@ -50,10 +50,11 @@ export default function FavoriteWordForm() {
             <label for='example'>Example:</label>
             <input 
             type='text'
-            name='exampleExample' 
+            name='example' 
             value={newFavoriteWord.name} 
             onChange={handleChange}
             ></input>
+             <button type="submit">Add Favorite Word</button>
         </form>
     )
 
