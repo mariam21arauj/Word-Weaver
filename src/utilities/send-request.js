@@ -12,9 +12,7 @@ export default async function sendRequest(url, method = "GET", payload = null) {
       ...options.headers,
       Authorization: `Bearer ${token}`,
     };
-  } else {
-    throw new Error("Missing authentication token");
-  }
+  } 
 
   console.log("URL:", url);
   console.log("Options:", options);

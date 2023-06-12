@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(cors())
-
+app.use(checkToken)
 
 const usersRouter = require('./routes/api/users')
 // Put API routes here, before the "catch all" route

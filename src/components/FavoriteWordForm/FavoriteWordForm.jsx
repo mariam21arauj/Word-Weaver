@@ -35,7 +35,7 @@ export default function FavoriteWordForm({setFavoriteWord}) {
         console.log(response,)
         const updatedFavoriteWords = response.data;
         console.log(updatedFavoriteWords);
-        setFavoriteWord(updatedFavoriteWords);
+        setFavoriteWord(response);
         setNewFavoriteWord({
           word: "",
           definition: "",

@@ -3,11 +3,11 @@ const Schema = mongoose.Schema;
 const SALT_ROUNDS = 6
 const bcrypt = require('bcrypt')
 
-// const favoriteWordSchema = new Schema ({
-//   word: {type: String, required: true},
-//   definition: {type: String, required: true},
-//   example: {type: String, required: true},
-// })
+const favoriteWordSchema = new Schema ({
+  word: {type: String, required: true},
+  definition: {type: String, required: true},
+  example: {type: String, required: true},
+})
 
 const userSchema = new Schema({
     name: {type: String, required: true},
@@ -23,7 +23,12 @@ const userSchema = new Schema({
       trim: true,
       minLength: 3,
       required: true
-    }
+    },
+    favoriteWord: [{
+      word: {type: String, required: true},
+      definition: {type: String, required: true},
+      example: {type: String, required: true},
+    }]
   }, {
     timestamps:true,
     toJSON: {
@@ -32,11 +37,6 @@ const userSchema = new Schema({
           return ret;
         }
     },
-    favoriteWord: [{
-      word: {type: String, required: true},
-      definition: {type: String, required: true},
-      example: {type: String, required: true},
-    }]
 });
 
 // models/user.sj

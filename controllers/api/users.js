@@ -62,7 +62,7 @@ function checkToken(req, res) {
 
 async function addFavoriteWord(req, res) {
   try {
-    const user = req.user;
+    const user = await User.findById(req.user._id)
     const { word, definition, example } = req.body;
     user.favoriteWord.push({ word, definition, example });
     await user.save();
