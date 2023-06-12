@@ -7,12 +7,14 @@ require('dotenv').config();
 require('./config/database')
 const app = express();
 const cors = require('cors')
+const checkToken = require('./config/checkToken')
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(cors())
+app.use(checkToken)
 
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));

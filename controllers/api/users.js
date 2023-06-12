@@ -7,6 +7,7 @@ const bcrypt = require('bcrypt');
 module.exports = {
     create,
     login,
+    addFavoriteWord
   };
   
   // controllers/api/users.js
@@ -49,5 +50,18 @@ function createJWT(user) {
     { expiresIn: '24h' }
   );
 }
+
+async function addFavoriteWord(req, res) {
+  try {
+    const user = req.user; // Assuming you have middleware to authenticate and set req.user
+    const { word, definition, example } = req.body;
+    user.favoriteWord.push({ word, definition, example });
+    await user.save();
+    res.json(user.favoriteWord);
+  } catch (error) {
+    res.status(400).json(error);
+  }
+}
+
 
 
