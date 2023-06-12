@@ -22,7 +22,7 @@ export default function SearchBarCard() {
         if(e.target.name === 'dictionary') {
             setSearchType('dictionary')
         } else {
-            setSearchType('thesaurus')
+            setSearchType('examples')
         }
     }
     console.log(searchResults)
@@ -33,7 +33,7 @@ export default function SearchBarCard() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
             />
-            <label> Dictionary
+            <label> Definitions
                 <input 
                 type='radio'
                 name='dictionary'
@@ -41,11 +41,11 @@ export default function SearchBarCard() {
                 onChange={handleChange}
                 />
             </label>
-            <label> Thesaurus
+            <label> Examples
                 <input
                 type="radio"
-                name="thesaurus" 
-                checked={searchType === 'thesaurus'} 
+                name="examples" 
+                checked={searchType === 'examples'} 
                 onChange={handleChange} />
             </label>
             <button onClick={handleSearch}>Search</button>
@@ -54,7 +54,7 @@ export default function SearchBarCard() {
                 {searchResults && searchResults.results && searchResults.results.length > 0 ? (
                     searchResults.results.map((result) => (
                         <li key={result.word}>
-                            {searchType === 'dictionary' ? result.definition : result.synonyms}
+                            {searchType === 'dictionary' ? result.definition : result.examples}
                         </li>
                     ))
                 ) : (

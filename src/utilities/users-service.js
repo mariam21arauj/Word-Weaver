@@ -58,6 +58,12 @@ export async function favoriteWord(newFavoriteWord) {
     throw new Error('Authentication token missing');
   }
 
-  const response = await sendRequest('/api/users/favorite-word', 'POST', newFavoriteWord);
-  return response; 
+  try {
+    const response = await sendRequest('/api/users/favorite-word', 'POST', newFavoriteWord, {
+      Authorization: `Bearer ${token}`,
+    });
+    return response;
+  } catch (error) {
+    throw new Error(`Error: ${error.message}`);
+  }
 }

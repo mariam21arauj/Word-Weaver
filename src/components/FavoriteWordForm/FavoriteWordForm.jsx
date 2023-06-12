@@ -42,7 +42,7 @@ export default function FavoriteWordForm({setFavoriteWord}) {
           example: "",
         });
       } catch (error) {
-        console.log('Error:', error);
+        console.log(error);
       }
     };
     
