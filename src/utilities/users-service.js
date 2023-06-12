@@ -59,5 +59,5 @@ export async function favoriteWord(newFavoriteWord) {
   }
 
   const response = await sendRequest('/api/users/favorite-word', 'POST', newFavoriteWord);
-  return response.data; 
+  return response; 
 }

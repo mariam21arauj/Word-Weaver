@@ -13,12 +13,17 @@ export default async function sendRequest(url, method = 'GET', payload = null) {
         options.headers = options.headers || {};
         options.headers.Authorization = `Bearer ${token}`;
   }
-
+  console.log("URL:", url);
+  console.log("Options:", options);
+  
 
     const res = await fetch(url, options);
-    console.log('sendrequest')
+    console.log(res)
     // res.ok will be false if the status code set to 4xx in the controller action
-    if (res.ok) return res.json();
+    if (res.status >= 200 && res.status < 300) return res.json();
+    const errorResponse = await res.json();
+    console.log("Error Response:", errorResponse);
     throw new Error('Bad Request');
+
   }
   

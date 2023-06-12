@@ -17,13 +17,15 @@ async function create(req, res) {
   try {
     // Add the user to the database
     const user = await User.create(req.body);
+    user.favoriteWord = []
     const token = createJWT(user);
     res.json(token);
 
   } catch (err) {
+    console.log(err)
     // Client will check for non-2xx status code
     // 400 = Bad Request
-    res.status(400).json(err);
+    res.status(400).json({ error: err.message });
   }
 }
 
@@ -66,7 +68,8 @@ async function addFavoriteWord(req, res) {
     await user.save();
     res.json(user.favoriteWord);
   } catch (error) {
-    res.status(400).json(error);
+    console.log(error)
+    res.status(400).json({ error: error.message });;
   }
 }
 

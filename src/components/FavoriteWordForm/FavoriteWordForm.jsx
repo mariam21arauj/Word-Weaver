@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { favoriteWord, getToken } from "../../utilities/users-service";
+import { getToken } from "../../utilities/users-service";
+import sendRequest  from "../../utilities/send-request"
 // import user from "../../../models/user";
 
 export default function FavoriteWordForm({setFavoriteWord}) {
@@ -25,7 +26,12 @@ export default function FavoriteWordForm({setFavoriteWord}) {
       try {
         const token = getToken(); // Get the authentication token
         console.log(token)
-        const response = await favoriteWord(newFavoriteWord)
+        const response = await sendRequest(
+          "/api/users/favorite-word",
+          "POST",
+           newFavoriteWord, // Pass newFavoriteWord as part of the payload object
+          {Authorization: `Bearer ${token}`},
+        );
         console.log(response,)
         const updatedFavoriteWords = response.data;
         console.log(updatedFavoriteWords);
@@ -36,7 +42,7 @@ export default function FavoriteWordForm({setFavoriteWord}) {
           example: "",
         });
       } catch (error) {
-        console.log(error);
+        console.log('Error:', error);
       }
     };
     
@@ -50,7 +56,7 @@ export default function FavoriteWordForm({setFavoriteWord}) {
             type='text'
             name='word'
             placeholder='New Favorite Word' 
-            value={newFavoriteWord.name} 
+            value={newFavoriteWord.word} 
             onChange={handleChange}
             ></input>
             <label for='definition'>Definition:</label>
@@ -58,14 +64,14 @@ export default function FavoriteWordForm({setFavoriteWord}) {
             type='text'
             name='definition'
             placeholder='Definition' 
-            value={newFavoriteWord.name} 
+            value={newFavoriteWord.definition} 
             onChange={handleChange}
             ></input>
             <label for='example'>Example:</label>
             <input 
             type='text'
             name='example' 
-            value={newFavoriteWord.name} 
+            value={newFavoriteWord.example} 
             onChange={handleChange}
             ></input>
              <button type="submit">Add Favorite Word</button>
