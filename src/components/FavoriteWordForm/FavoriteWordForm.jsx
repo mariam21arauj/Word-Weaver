@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { favoriteWord, getToken } from "../../utilities/users-service";
+// import user from "../../../models/user";
 
 export default function FavoriteWordForm({setFavoriteWord}) {
     const [newFavoriteWord, setNewFavoriteWord] = useState({
@@ -16,18 +18,30 @@ export default function FavoriteWordForm({setFavoriteWord}) {
         setNewFavoriteWord(allWords)
     }
 
-    const handleAddFavoriteWord = (event) => {
-        event.preventDefault()
-        setFavoriteWord(function(previusWordsArray) {
-            return [...previusWordsArray, newFavoriteWord]
-        });
 
+    const handleAddFavoriteWord = async (event) => {
+      event.preventDefault();
+      console.log('hi')
+      try {
+        const token = getToken(); // Get the authentication token
+        console.log(token)
+        const response = await favoriteWord(newFavoriteWord)
+        console.log(response,)
+        const updatedFavoriteWords = response.data;
+        console.log(updatedFavoriteWords);
+        setFavoriteWord(updatedFavoriteWords);
         setNewFavoriteWord({
-            word: '',
-            definition: '',
-            example: '',
+          word: "",
+          definition: "",
+          example: "",
         });
+      } catch (error) {
+        console.log(error);
+      }
     };
+    
+
+    
 
     return(
         <form className="FavoriteWordForm" onSubmit={handleAddFavoriteWord}>

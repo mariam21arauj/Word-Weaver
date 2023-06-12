@@ -1,6 +1,7 @@
 // Import all named exports attached to a usersAPI object
 // This syntax can be helpful documenting where the methods come from
 import * as usersAPI from './users-api';
+import sendRequest from './send-request';
 
 export async function signUp(userData) {
      // Delegate the network request code to the users-api.js API module
@@ -41,4 +42,22 @@ export async function login(userData) {
   const token = await usersAPI.login(userData);
   localStorage.setItem("token", token);
   return getUser();
+}
+
+export function checkToken() {
+  // Just so that you don't forget how to use .then
+  return usersAPI.checkToken()
+    // checkToken returns a string, but let's
+    // make it a Date object for more flexibility
+    .then(dateStr => new Date(dateStr));
+}
+
+export async function favoriteWord(newFavoriteWord) {
+  const token = getToken();
+  if (!token) {
+    throw new Error('Authentication token missing');
+  }
+
+  const response = await sendRequest('/api/users/favorite-word', 'POST', newFavoriteWord);
+  return response.data; 
 }

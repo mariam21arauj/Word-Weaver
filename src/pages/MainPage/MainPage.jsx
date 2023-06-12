@@ -1,5 +1,15 @@
-export default function MainPage(){
-    return(
-        <h1>MainPage</h1>
-    )
+import { checkToken } from "../../utilities/users-service";
+
+export default function MainPage() {
+  async function handleCheckToken() {
+    const expDate = await checkToken();
+    console.log(expDate);
+  }
+
+  return (
+    <div>
+      <h1>Main Page</h1>
+      <button onClick={handleCheckToken}>Check When My Login Expires</button>
+    </div>
+  );
 }

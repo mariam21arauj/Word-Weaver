@@ -12,11 +12,10 @@ export default function NavBar({ user, setUser }){
             <span>So good to see you, {user.name}!</span>
             &nbsp; | &nbsp;
             <Link to='' onClick={handleLogOut}>Log Out</Link>
+            &nbsp; | &nbsp;
             <Link to="/">Main</Link>
             &nbsp; | &nbsp;
             <Link to='/dictionary'>Dictionary</Link>
-            &nbsp; | &nbsp;
-            <Link to='/thesaurus'>Thesaurus</Link>
             &nbsp; | &nbsp;
             <Link to='favorites'>Favorite Words</Link>
         </nav>

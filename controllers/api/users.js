@@ -7,6 +7,7 @@ const bcrypt = require('bcrypt');
 module.exports = {
     create,
     login,
+    checkToken,
     addFavoriteWord
   };
   
@@ -51,9 +52,15 @@ function createJWT(user) {
   );
 }
 
+function checkToken(req, res) {
+  // req.user will always be ther for you when a token is sent!
+  console.log('req.user ', req.user);
+  res.json(req.exp);
+}
+
 async function addFavoriteWord(req, res) {
   try {
-    const user = req.user; // Assuming you have middleware to authenticate and set req.user
+    const user = req.user;
     const { word, definition, example } = req.body;
     user.favoriteWord.push({ word, definition, example });
     await user.save();
