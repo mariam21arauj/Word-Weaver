@@ -51,7 +51,7 @@ export default function SearchBarCard() {
             <button onClick={handleSearch}>Search</button>
             <div>
             <h2>Word: {searchResults.word}</h2>
-                {searchResults && searchResults.word && searchResults.results && searchResults.results.length > 0 && (
+                {searchResults && searchResults.results && searchResults.results.length > 0 && (
                 searchResults.results.map((result) => {
                     if (searchType === 'dictionary') {
                     return (
