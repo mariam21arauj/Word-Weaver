@@ -49,18 +49,38 @@ export default function SearchBarCard() {
                 onChange={handleChange} />
             </label>
             <button onClick={handleSearch}>Search</button>
-            <ul>
-                {/* Previus commit also changed this */}
-                {searchResults && searchResults.results && searchResults.results.length > 0 ? (
-                    searchResults.results.map((result) => (
-                        <li key={result.word}>
-                            {searchType === 'dictionary' ? result.definition : result.examples}
-                        </li>
-                    ))
-                ) : (
-                    <li>No results found.</li>
-                )}
-        </ul>
+            <div>
+            <h2>Word: {searchResults.word}</h2>
+                {searchResults && searchResults.word && searchResults.results && searchResults.results.length > 0 && (
+                searchResults.results.map((result) => {
+                    if (searchType === 'dictionary') {
+                    return (
+                        <>
+                        <ul key={result.word}>
+                            <li>
+                            <span>Definition: {result.definition}</span> 
+                            &nbsp;&nbsp;
+                            &nbsp; | &nbsp;
+                            <span>Part of Speech: {result.partOfSpeech}</span>
+                            </li>
+                            
+                        </ul>
+                        </>
+                        
+                    );
+                    } else {
+                        return (
+                            <li key={result.word}>
+                                {result.examples}
+                            </li>
+                        );
+                    }
+                })
+            )}
+            {!(searchResults && searchResults.results && searchResults.results.length > 0) && (
+                <li>No results found.</li>
+            )}
+            </div>
         </div>
     )
 }
