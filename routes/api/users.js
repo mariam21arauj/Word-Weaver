@@ -10,6 +10,7 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn')
 router.post('/', usersCtrl.create);
 router.post('/login', usersCtrl.login);
 router.post('/favorite-word', ensureLoggedIn, usersCtrl.addFavoriteWord)
+router.get('/show-favorite-word', ensureLoggedIn, usersCtrl.showFavoriteWords)
 router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken);
 
 module.exports = router;

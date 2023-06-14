@@ -8,7 +8,8 @@ module.exports = {
     create,
     login,
     checkToken,
-    addFavoriteWord
+    addFavoriteWord,
+    showFavoriteWords
   };
   
   // controllers/api/users.js
@@ -63,10 +64,24 @@ function checkToken(req, res) {
 async function addFavoriteWord(req, res) {
   try {
     const user = await User.findById(req.user._id)
+    console.log(user)
     const { word, definition, example } = req.body;
     user.favoriteWord.push({ word, definition, example });
     await user.save();
     res.json(user.favoriteWord);
+  } catch (error) {
+    console.log(error)
+    res.status(400).json({ error: error.message });;
+  }
+}
+
+
+async function showFavoriteWords(req, res) {
+  console.log(req.user._id)
+  try {
+    const user = await User.findById(req.user._id).populate('favoriteWord')
+    console.log(req.user._id)
+    res.json(user.favoriteWord)
   } catch (error) {
     console.log(error)
     res.status(400).json({ error: error.message });;

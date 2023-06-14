@@ -24,11 +24,7 @@ const userSchema = new Schema({
       minLength: 3,
       required: true
     },
-    favoriteWord: [{
-      word: {type: String, required: true},
-      definition: {type: String, required: true},
-      example: {type: String, required: true},
-    }]
+    favoriteWord: [favoriteWordSchema]
   }, {
     timestamps:true,
     toJSON: {

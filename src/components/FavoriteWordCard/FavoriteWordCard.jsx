@@ -2,9 +2,9 @@ export default function FavoriteWordCard({favoriteWord}) {
     let {word, definition, example} = favoriteWord
     return(
         <li>
-            <div>{word}</div>
-            <div>{definition}</div>
-            <div>{example}</div>
+            <div>Word: {word}</div>
+            <div>Definition: {definition}</div>
+            <div>Example: {example}</div>
         </li>
     )
 }

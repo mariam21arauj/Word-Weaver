@@ -22,7 +22,6 @@ export default function FavoriteWordForm({setFavoriteWord}) {
 
     const handleAddFavoriteWord = async (event) => {
       event.preventDefault();
-      console.log('hi')
       try {
         const token = getToken(); // Get the authentication token
         console.log(token)
@@ -32,10 +31,9 @@ export default function FavoriteWordForm({setFavoriteWord}) {
            newFavoriteWord, // Pass newFavoriteWord as part of the payload object
           {Authorization: `Bearer ${token}`},
         );
-        console.log(response,)
-        const updatedFavoriteWords = response.data;
-        console.log(updatedFavoriteWords);
-        setFavoriteWord(response);
+        const updatedFavoriteWords = response;
+        // console.log(updatedFavoriteWords);
+        setFavoriteWord(updatedFavoriteWords);
         setNewFavoriteWord({
           word: "",
           definition: "",
