@@ -30,9 +30,9 @@ export default function FavoriteWordsPage() {
     return (
     <div>
         <h1>Your Favorite Words</h1>
-        <FavoriteWordListCard favoriteWord={favoriteWord} />
-        <hr></hr>
         <FavoriteWordForm setFavoriteWord={setFavoriteWord} />
+        <hr></hr>
+        <FavoriteWordListCard favoriteWord={favoriteWord} />
     </div>
     );
 }
