@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './SearchBarCard.css'
 
 export default function SearchBarCard() {
     const [searchQuery, setSearchQuery] = useState('');
@@ -57,18 +58,17 @@ export default function SearchBarCard() {
                         if(result.examples && result.examples.length > 0){
                             return (
                                 <>
-                                <ul key={result.word}>
-                                    <li>
-                                    <span>Definition: {result.definition}</span> 
-                                    &nbsp;&nbsp;
-                                    &nbsp; | &nbsp;
-                                    <span>Part of Speech: {result.partOfSpeech}</span>
-                                    &nbsp;&nbsp;
-                                    &nbsp; | &nbsp;
-                                    <span>Examples: {result.examples}</span>
-                                    </li>
+                                <div className='card-container'>
+                                <div className='card' key={result.word}>
                                     
-                                </ul>
+                                    <h3>Definition:</h3> 
+                                    <p>{result.definition}</p>
+                                    <h3>Part of Speech:</h3>
+                                    <p>{result.partOfSpeech}</p>
+                                    <h3>Examples:</h3>
+                                    <p>{result.examples}</p>
+                                </div>
+                                </div>
                                 </>
                                 
                             );
