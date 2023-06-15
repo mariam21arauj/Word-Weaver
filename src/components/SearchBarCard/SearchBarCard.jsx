@@ -54,42 +54,63 @@ export default function SearchBarCard() {
                 {searchResults.results && searchResults.results.length > 0 && (
                 searchResults.results.map((result) => {
                     if (searchType === 'definitions') {
-                    return (
-                        <>
-                        <ul key={result.word}>
-                            <li>
-                            <span>Definition: {result.definition}</span> 
-                            &nbsp;&nbsp;
-                            &nbsp; | &nbsp;
-                            <span>Part of Speech: {result.partOfSpeech}</span>
-                            &nbsp;&nbsp;
-                            &nbsp; | &nbsp;
-                            <span>Examples: {result.examples}</span>
-                            </li>
-                            
-                        </ul>
-                        </>
-                        
-                    );
+                        if(result.examples && result.examples.length > 0){
+                            return (
+                                <>
+                                <ul key={result.word}>
+                                    <li>
+                                    <span>Definition: {result.definition}</span> 
+                                    &nbsp;&nbsp;
+                                    &nbsp; | &nbsp;
+                                    <span>Part of Speech: {result.partOfSpeech}</span>
+                                    &nbsp;&nbsp;
+                                    &nbsp; | &nbsp;
+                                    <span>Examples: {result.examples}</span>
+                                    </li>
+                                    
+                                </ul>
+                                </>
+                                
+                            );
+                        }
+                        else{
+                            if(!result.examples){
+                                return (
+                                    <>
+                                <ul key={result.word}>
+                                    <li>
+                                        <span>Definition: {result.definition}</span> 
+                                        &nbsp;&nbsp;
+                                        &nbsp; | &nbsp;
+                                        <span>Part of Speech: {result.partOfSpeech}</span>
+                                        &nbsp;&nbsp;
+                                        &nbsp; | &nbsp;
+                                        <span>Examples: no examples found </span>
+                                    </li>
+                                </ul>
+                                </>
+                                )
+                            }
+                        }
                     } if (searchType === 'examples') {
                         if (result.synonyms && result.synonyms.length > 0) {
                             return (
-                                    <span key={result.word}>
-                                        {result.synonyms.map((synonyms, index) => (
-                                            <ul>
-                                                <li key={index}>{synonyms}</li>
-                                            </ul>
-                                        ))}
-                                    </span>
+                                <span key={result.word}>
+                                    {result.synonyms.map((synonyms, index) => (
+                                        <ul>
+                                            <li key={index}>{synonyms}</li>
+                                        </ul>
+                                    ))}
+                                </span>
                             );
                         }
-                        }
+                    }
                         else {
                             if (!result.synonymss){
-                            return (
+                                return (
                                 <p>No synonyms found</p>
-                            )
-                        }
+                                )
+                            }
                         }
                     })
                     )}
