@@ -43,6 +43,7 @@ img {
     background-color: #f8f9fa;
     color: black;
 }
+.drop { filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7)); }
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
