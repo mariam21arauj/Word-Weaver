@@ -32,10 +32,12 @@ export default function SearchBarCard() {
             <div className='radioContainer'>
                 <div className='selector'>
                     <input
+                    placeholder='Search Word'
+                    label='searchBar'
                     type='text'
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                />
+                    />
                 <div className='selector-item'>
                     <input 
                         id='radio1'
@@ -48,13 +50,14 @@ export default function SearchBarCard() {
                     <label for = "radio1" className='selector-item_label'>Definitions</label>
                 </div>
                 <div className='selector-item'>
-                <input
-                    id='radio2'
-                    className='selector-item_radio'
-                    type="radio"
-                    name="synonyms" 
-                    checked={searchType === 'synonyms'} 
-                    onChange={handleChange} />
+                    <input
+                        id='radio2'
+                        className='selector-item_radio'
+                        type="radio"
+                        name="synonyms" 
+                        checked={searchType === 'synonyms'} 
+                        onChange={handleChange} 
+                    />
                     <label  for = "radio2" className='selector-item_label'> Synonyms</label>
                 </div>
                 <button onClick={handleSearch}>Search</button>
@@ -71,8 +74,7 @@ export default function SearchBarCard() {
                             return (
                                 <>
                                 <div className='card-container'>
-                                <div className='card' key={result.word}>
-                                    
+                                <div className='card' key={result.definition}> 
                                     <h3>Definition:</h3> 
                                     <p>{result.definition}</p>
                                     <h3>Part of Speech:</h3>
@@ -90,7 +92,7 @@ export default function SearchBarCard() {
                                 return (
                                     <>
                                 <div className='card-container'>
-                                <div className='card' key={result.word}>  
+                                <div className='card' key={result.definition}>  
                                 <h3>Definition:</h3> 
                                     <p>{result.definition}</p>
                                     <h3>Part of Speech:</h3>

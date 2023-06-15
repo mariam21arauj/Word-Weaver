@@ -48,16 +48,17 @@
 .radioContainer {
     position:relative;
     display: flex;
-    width:100%;
+    width:150%;
     height:100%;
-    justify-content:center;
+    justify-content: auto;
     align-items:center;
     margin-top: 5%;
+    margin-left: 5%;
 }
 
 .selector {
         position:relative;
-        width:60%;
+        width: 1300px;
         background-color:rgb(201, 166, 214);
         height:80px;
         display:flex;
@@ -81,15 +82,19 @@
 }
 .selector-item_label{
     position:relative;
-    height:80%;
+    height:70%;
     width:100%;
     text-align:center;
     border-radius:9999px;
-    line-height:400%;
-    font-weight:900;
+    line-height:250%;
+    font-weight:700;
     transition-duration:.5s;
     transition-property:transform, box-shadow;
     transform:none;
+    padding-left: 5%;
+    margin-left: 5%;
+    margin-bottom: auto;
+    margin-top: auto;
 }
 .selector-item_radio:checked + .selector-item_label{
     background-color:var(--blue);
@@ -102,3 +107,35 @@
 		width: 90%;
 	}
 }
+
+label {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  
+  input[type=text] {
+    display: block;
+    width: 500px;
+    height: 40px;
+    padding: 0 8px;
+    border-radius: 10px;
+    border: 3px solid black;
+  }
+  
+  input[type=text]:focus {
+    outline: none;
+    border: 3px solid transparent;
+    background-image: linear-gradient(white, white), linear-gradient(315deg, rgb(236, 160, 255), rgb(170, 178, 255), rgb(132, 255, 201));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    animation: bg-hue 2s linear infinite;
+  }
+  
+  /* @keyframes for the gradient animation */
+  @keyframes bg-hue {
+    100% {
+      filter: hue-rotate(360deg);
+    }
+  }
