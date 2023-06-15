@@ -25,7 +25,7 @@ export default function SearchBarCard() {
             setSearchType('examples')
         }
     }
-    console.log(searchResults)
+    
     return (
         <div>
             <input 
@@ -41,7 +41,7 @@ export default function SearchBarCard() {
                 onChange={handleChange}
                 />
             </label>
-            <label> Examples
+            <label> Synonyms
                 <input
                 type="radio"
                 name="examples" 
@@ -62,6 +62,9 @@ export default function SearchBarCard() {
                             &nbsp;&nbsp;
                             &nbsp; | &nbsp;
                             <span>Part of Speech: {result.partOfSpeech}</span>
+                            &nbsp;&nbsp;
+                            &nbsp; | &nbsp;
+                            <span>Examples: {result.examples}</span>
                             </li>
                             
                         </ul>
@@ -69,26 +72,31 @@ export default function SearchBarCard() {
                         
                     );
                     } if (searchType === 'examples') {
-                        if (result.examples && result.examples.length > 0) {
+                        if (result.synonyms && result.synonyms.length > 0) {
                             return (
-                                <ul>
-                                    <li key={result.word}>
-                                        {result.examples.map((example, index) => (
-                                            <span key={index}>{example}</span>
+                                    <span key={result.word}>
+                                        {result.synonyms.map((synonyms, index) => (
+                                            <ul>
+                                                <li key={index}>{synonyms}</li>
+                                            </ul>
                                         ))}
-                                    </li>
-                                </ul>
+                                    </span>
                             );
-                        } if(!result.examples){
-                            return <p>No examples found for this word. Check out our definitions option to learn more about this.</p>;
                         }
-                    } 
-                })
-            )}
-            {!( searchResults.results && searchResults.results.length > 0) && (
-                <li>No results found.</li>
-            )}
-            </div>
+                        }
+                        else {
+                            if (!result.synonymss){
+                            return (
+                                <p>No synonyms found</p>
+                            )
+                        }
+                        }
+                    })
+                    )}
+                    {!( searchResults.results && searchResults.results.length > 0) && (
+                        <li>No results found.</li>
+                        )}
+                        </div>
         </div>
     )
 }
