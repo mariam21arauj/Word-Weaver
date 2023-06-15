@@ -29,29 +29,41 @@ export default function SearchBarCard() {
     
     return (
         <div>
-            <input 
-                type='text'
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            <label> Definitions
-                <input 
-                type='radio'
-                name='definitions'
-                checked={searchType === 'definitions'} 
-                onChange={handleChange}
+            <div className='radioContainer'>
+                <div className='selector'>
+                    <input
+                    type='text'
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
                 />
-            </label>
-            <label> Synonyms
+                <div className='selector-item'>
+                    <input 
+                        id='radio1'
+                        className='selector-item_radio'
+                        type='radio'
+                        name='definitions'
+                        checked={searchType === 'definitions'} 
+                        onChange={handleChange}
+                        />
+                    <label for = "radio1" className='selector-item_label'>Definitions</label>
+                </div>
+                <div className='selector-item'>
                 <input
-                type="radio"
-                name="synonyms" 
-                checked={searchType === 'synonyms'} 
-                onChange={handleChange} />
-            </label>
-            <button onClick={handleSearch}>Search</button>
+                    id='radio2'
+                    className='selector-item_radio'
+                    type="radio"
+                    name="synonyms" 
+                    checked={searchType === 'synonyms'} 
+                    onChange={handleChange} />
+                    <label  for = "radio2" className='selector-item_label'> Synonyms</label>
+                </div>
+                <button onClick={handleSearch}>Search</button>
+                </div>
+            </div>
             <div>
-            <h2>Word: {searchResults.word}</h2>
+                <div className='word'>
+                    <h2>Word: {searchResults.word}</h2>
+                </div>
                 {searchResults.results && searchResults.results.length > 0 && (
                 searchResults.results.map((result) => {
                     if (searchType === 'definitions') {
@@ -77,17 +89,16 @@ export default function SearchBarCard() {
                             if(!result.examples){
                                 return (
                                     <>
-                                <ul key={result.word}>
-                                    <li>
-                                        <span>Definition: {result.definition}</span> 
-                                        &nbsp;&nbsp;
-                                        &nbsp; | &nbsp;
-                                        <span>Part of Speech: {result.partOfSpeech}</span>
-                                        &nbsp;&nbsp;
-                                        &nbsp; | &nbsp;
-                                        <span>Examples: No examples found for this definition</span>
-                                    </li>
-                                </ul>
+                                <div className='card-container'>
+                                <div className='card' key={result.word}>  
+                                <h3>Definition:</h3> 
+                                    <p>{result.definition}</p>
+                                    <h3>Part of Speech:</h3>
+                                    <p>{result.partOfSpeech}</p>
+                                    <h3>Examples:</h3>
+                                    <p>No examples found.</p>
+                                </div>
+                                </div>
                                 </>
                                 )
                             }
