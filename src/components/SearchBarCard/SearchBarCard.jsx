@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 export default function SearchBarCard() {
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
-    const [searchType, setSearchType] = useState('dictionary')
+    const [searchType, setSearchType] = useState('definitions')
 
 
     const handleSearch = async() => {
@@ -19,8 +19,8 @@ export default function SearchBarCard() {
     };
 
     const handleChange = (e) => {
-        if(e.target.name === 'dictionary') {
-            setSearchType('dictionary')
+        if(e.target.name === 'definitions') {
+            setSearchType('definitions')
         } else {
             setSearchType('examples')
         }
@@ -36,8 +36,8 @@ export default function SearchBarCard() {
             <label> Definitions
                 <input 
                 type='radio'
-                name='dictionary'
-                checked={searchType === 'dictionary'} 
+                name='definitions'
+                checked={searchType === 'definitions'} 
                 onChange={handleChange}
                 />
             </label>
@@ -51,9 +51,9 @@ export default function SearchBarCard() {
             <button onClick={handleSearch}>Search</button>
             <div>
             <h2>Word: {searchResults.word}</h2>
-                {searchResults && searchResults.results && searchResults.results.length > 0 && (
+                {searchResults.results && searchResults.results.length > 0 && (
                 searchResults.results.map((result) => {
-                    if (searchType === 'dictionary') {
+                    if (searchType === 'definitions') {
                     return (
                         <>
                         <ul key={result.word}>
@@ -68,16 +68,24 @@ export default function SearchBarCard() {
                         </>
                         
                     );
-                    } else {
-                        return (
-                            <li key={result.word}>
-                                {result.examples}
-                            </li>
-                        );
-                    }
+                    } if (searchType === 'examples') {
+                        if (result.examples && result.examples.length > 0) {
+                            return (
+                                <ul>
+                                    <li key={result.word}>
+                                        {result.examples.map((example, index) => (
+                                            <span key={index}>{example}</span>
+                                        ))}
+                                    </li>
+                                </ul>
+                            );
+                        } if(!result.examples){
+                            return <p>No examples found for this word. Check out our definitions option to learn more about this.</p>;
+                        }
+                    } 
                 })
             )}
-            {!(searchResults && searchResults.results && searchResults.results.length > 0) && (
+            {!( searchResults.results && searchResults.results.length > 0) && (
                 <li>No results found.</li>
             )}
             </div>
