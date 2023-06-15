@@ -9,7 +9,7 @@ export default function MainPage() {
   return (
     <div>
       <h1>Main Page</h1>
-      <button onClick={handleCheckToken}>Check When My Login Expires</button>
+      {/* <button onClick={handleCheckToken}>Check When My Login Expires</button> */}
     </div>
   );
 }

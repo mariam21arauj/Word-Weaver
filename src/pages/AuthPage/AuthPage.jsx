@@ -1,15 +1,14 @@
 // AuthPage.jsx
 
-import SignUpForm from "../../components/SignupForm/SignupForm";
-import LoginForm from "../../components/LoginForm/LoginForm";
+import { Link } from "react-router-dom";
 
 export default function AuthPage({setUser}) {
   return (
     <main>
-      <h2>Sign Up</h2>
-      <SignUpForm setUser={setUser}/>
-      <h2>Login</h2>
-      <LoginForm setUser={setUser}/>
+      <h2>Welcome</h2>
+      <Link to='/signup'>Sign Up</Link>
+      &nbsp; | &nbsp;
+      <Link to='/login'>Login</Link>
     </main>
   );
 }

@@ -7,6 +7,9 @@ import { getUser } from '../../utilities/users-service';
 import DictionaryPage from '../DictionaryPage/DictionaryPage';
 import FavoriteWordsPage from '../FavoriteWordsPage/FavoriteWordsPage'
 import NavBar from '../../components/NavBar/NavBar';
+import Login from '../LoginFormPage/LoginFormPage';
+import SignUpForm from '../../components/SignupForm/SignupForm';
+import Signup from '../SignupFormPage/SignupFormPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -24,7 +27,13 @@ export default function App() {
         </Routes>
         </>
         ):(
+          <>
           <AuthPage setUser={setUser}/>
+          <Routes>
+            <Route path='/login' element={<Login user={user} setUser={setUser}/>}></Route>
+            <Route path='/signup' element={<Signup user={user} setUser={setUser}/>}></Route> 
+          </Routes>
+          </>
       )}
     </main>
     </div>
