@@ -22,7 +22,7 @@ export default function SearchBarCard() {
         if(e.target.name === 'definitions') {
             setSearchType('definitions')
         } else {
-            setSearchType('examples')
+            setSearchType('synonyms')
         }
     }
     
@@ -44,8 +44,8 @@ export default function SearchBarCard() {
             <label> Synonyms
                 <input
                 type="radio"
-                name="examples" 
-                checked={searchType === 'examples'} 
+                name="synonyms" 
+                checked={searchType === 'synonyms'} 
                 onChange={handleChange} />
             </label>
             <button onClick={handleSearch}>Search</button>
@@ -92,7 +92,7 @@ export default function SearchBarCard() {
                                 )
                             }
                         }
-                    } if (searchType === 'examples') {
+                    } if (searchType === 'synonyms') {
                         if (result.synonyms && result.synonyms.length > 0) {
                             return (
                                 <span key={result.word}>
@@ -116,7 +116,7 @@ export default function SearchBarCard() {
                     )}
                     {!( searchResults.results && searchResults.results.length > 0) && (
                         <li>No results found.</li>
-                        )}
+                    )}
                         </div>
         </div>
     )
