@@ -2,7 +2,6 @@ import { Component } from "react";
 import {signUp} from '../../utilities/users-service'
 
 export default class SignUpForm extends Component {
-
     state = {
         name: '',
         email: '',
@@ -26,6 +25,7 @@ export default class SignUpForm extends Component {
            delete formData.confirm;
            const user = await signUp(formData)
            this.props.setUser(user)
+           window.location.href = "/";
         } catch {
             this.setState({ error: 'Sign Up Failed - Try Again' });
         }

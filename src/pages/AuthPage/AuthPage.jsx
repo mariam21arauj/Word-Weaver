@@ -7,6 +7,7 @@ export default function AuthPage() {
     <main>
       <div className="d-flex flex-column justify-content-center w-100 h-100">
 	      <div id='container' className="d-flex flex-column justify-content-center align-items-center">
+        <img src = "https://i.postimg.cc/CKTH3kYj/Word-Weaver2logo.png"  alt = "" />
 		      <h1 className="fw-light text-white m-0">Welcome To Word Weaver</h1>
 		      <div className="btn-group my-5">
             <Link className="btn btn-outline-light" to='/login'>Login</Link>
