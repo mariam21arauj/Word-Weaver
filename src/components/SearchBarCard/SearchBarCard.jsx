@@ -32,6 +32,7 @@ export default function SearchBarCard() {
             <div className='radioContainer'>
                 <div className='selector'>
                     <input
+                    id='searchBox'
                     placeholder='Search Word'
                     label='searchBar'
                     type='text'

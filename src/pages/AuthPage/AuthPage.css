@@ -3,10 +3,13 @@ body {
 	background-size: 1000% 1000%;
 	animation: gradient 15s ease infinite;
 	height: 100vh;
+    width: 100%;
     margin: auto;
 }
 #container {
     margin-top: 15% ;
+    margin-right: 15;
+
 }
 h1 {
     color: aliceblue;
@@ -18,7 +21,7 @@ h1 {
     border: 1px solid;
 }
 img {
-    width: 35%
+    width: 20%
 }
 .btn {
     display: inline-block;
