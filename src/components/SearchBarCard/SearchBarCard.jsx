@@ -85,7 +85,7 @@ export default function SearchBarCard() {
                                         <span>Part of Speech: {result.partOfSpeech}</span>
                                         &nbsp;&nbsp;
                                         &nbsp; | &nbsp;
-                                        <span>Examples: no examples found </span>
+                                        <span>Examples: No examples found for this definition</span>
                                     </li>
                                 </ul>
                                 </>
