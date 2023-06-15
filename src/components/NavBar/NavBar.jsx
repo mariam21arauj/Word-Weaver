@@ -1,3 +1,4 @@
+import "./NavBar.css"
 import { Link } from "react-router-dom";
 import * as userService from '../../utilities/users-service'
 
@@ -8,16 +9,17 @@ export default function NavBar({ user, setUser }){
     }
     
     return(
-        <nav>
+        <div className="main-navBar">
             <span>So good to see you, {user.name}!</span>
-            &nbsp; | &nbsp;
-            <Link to='' onClick={handleLogOut}>Log Out</Link>
-            &nbsp; | &nbsp;
-            <Link to="/">Main</Link>
-            &nbsp; | &nbsp;
-            <Link to='/dictionary'>Dictionary</Link>
-            &nbsp; | &nbsp;
-            <Link to='favorites'>Favorite Words</Link>
-        </nav>
+            <nav className="nav-bar">
+            
+                <ul>
+                    <li><Link to='' onClick={handleLogOut}>Log Out</Link>  </li>              
+                    <li><Link to="/">Main</Link></li>           
+                    <li><Link to='/dictionary'>Dictionary</Link></li>                
+                    <li><Link to='favorites'>Favorite Words</Link></li>
+                </ul>
+            </nav>
+        </div>
     )
 }

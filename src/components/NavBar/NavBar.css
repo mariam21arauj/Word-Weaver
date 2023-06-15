@@ -1,0 +1,39 @@
+.main-navBar{
+    margin: 60px;
+    background-color: #5b263131;
+    border: 4px solid pink; 
+    border-radius: 10%;
+    height: 100px;
+    width: 50%;
+    display: flexbox;
+    align-items: center;
+  }
+.nav-bar{
+    word-spacing: 40px;
+    font-size: 20px;
+    font-family: arial;
+    padding: 2%;
+  }
+  
+  .nav-bar ul li a{
+    text-decoration: none;
+    color: rgb(7, 3, 3);
+    padding: 25px;
+    margin: auto
+  }
+  
+  .nav-bar ul li{
+    display: inline-block;
+    transition: border 1s, border-radius 1s, padding 1s, background-color 2s, color 1s;
+    margin: auto;
+    padding: 5px;
+  }
+  
+  .nav-bar ul li:hover{
+    border-bottom: 2px solid gray;
+    border-radius: 10%;
+    padding: 10px;
+    background-color: #5b263131;
+    color: white;
+  }
+  
