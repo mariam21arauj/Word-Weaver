@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { getToken } from "../../utilities/users-service";
 import sendRequest  from "../../utilities/send-request"
+import './FavoriteWordForm.css'
 // import user from "../../../models/user";
 
 export default function FavoriteWordForm({setFavoriteWord}) {
@@ -72,7 +73,7 @@ export default function FavoriteWordForm({setFavoriteWord}) {
             value={newFavoriteWord.example} 
             onChange={handleChange}
             ></input>
-             <button type="submit">Add Favorite Word</button>
+             <button id="btn1-favoriteWord" className="btn1" type="submit">Add Favorite Word</button>
         </form>
     )
 

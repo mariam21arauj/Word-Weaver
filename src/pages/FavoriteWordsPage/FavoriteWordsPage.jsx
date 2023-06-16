@@ -29,9 +29,10 @@ export default function FavoriteWordsPage() {
     }, []);
     return (
     <div>
-        <h1>Your Favorite Words</h1>
+        <h1>Add a New Favorite Word</h1>
         <FavoriteWordForm setFavoriteWord={setFavoriteWord} />
         <hr></hr>
+        <h2>Your Favorite Words</h2>
         <FavoriteWordListCard favoriteWord={favoriteWord} />
     </div>
     );
