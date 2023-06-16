@@ -57,7 +57,7 @@ Give a ⭐️ if this project helped you!
 ### More information about each word.
 
 
-### This project used code from the following sources: 
+#### This project used code from the following sources: 
  https://codepen.io/P1N2O/pen/pyBNzX
  https://codepen.io/William-Bardon/pen/MWzKgmW
  https://codepen.io/sora_12/pen/abVaXjg?editors=1100
