@@ -40,7 +40,7 @@ const navigate = useNavigate()
           <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
           <label>Password</label>
           <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <button type="submit">LOG IN</button>
+          <button className='custom-btn btn-8"' type="submit"><span>LOG IN</span></button>
         </form>
       </div>
       <p className="error-message">&nbsp;{error}</p>
