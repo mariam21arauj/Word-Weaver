@@ -74,8 +74,8 @@ export default function SearchBarCard() {
                         if(result.examples && result.examples.length > 0){
                             return (
                                 <>
-                                <div className='dictionary-card-container'>
-                                <div className='dictionary-card' key={result.definition}> 
+                                <div className='searchBar-card-container'>
+                                <div className='searchBar-card' key={result.definition}> 
                                     <h3>Definition:</h3> 
                                     <p>{result.definition}</p>
                                     <h3>Part of Speech:</h3>
@@ -92,8 +92,8 @@ export default function SearchBarCard() {
                             if(!result.examples){
                                 return (
                                     <>
-                                        <div className='dictionary-card-container'>
-                                            <div className='dictionary-card' key={result.definition}>    
+                                        <div className='searchBar-card-container'>
+                                            <div className='searchBar-card' key={result.definition}>    
                                                 <h3>Definition:</h3> 
                                                 <p>{result.definition}</p>
                                                 <h3>Part of Speech:</h3>
@@ -109,13 +109,15 @@ export default function SearchBarCard() {
                     } if (searchType === 'synonyms') {
                         if (result.synonyms && result.synonyms.length > 0) {
                             return (
-                                <span key={result.word}>
-                                    {result.synonyms.map((synonyms, index) => (
-                                        <ul>
-                                            <li key={index}>{synonyms}</li>
-                                        </ul>
-                                    ))}
-                                </span>
+                                <>
+                                    <div className='searchBar-card-container' key={result.word}>
+                                        <div className='searchBar-card'>
+                                            {result.synonyms.map((synonyms, index) => (
+                                                    <p key={index}>{synonyms}</p>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </>
                             );
                         }
                     }

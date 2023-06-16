@@ -1,6 +1,6 @@
-.dictionary-card {
+.searchBar-card {
     position: relative;
-    width: 20rem;
+    width: 60%;
     height: 20%;
     background: rgb(33, 33, 33);
     background: linear-gradient(
@@ -20,7 +20,7 @@
     color: white;
   }
 
-.dictionary-card-container {
+.searchBar-card-container {
     display: inline-flex;
 }
 
