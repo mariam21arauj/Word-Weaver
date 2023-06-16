@@ -11,8 +11,8 @@ export default function NavBar({ user, setUser }){
     return(
         <div>
             <div className="main-navBar">
-                <div><img id='loginLogo' className='drop' src = "https://i.postimg.cc/CKTH3kYj/Word-Weaver2logo.png"  alt = "" /></div>
-                <div>
+                <div id="navbarLogo-container"><img id='navbarLogo' className='drop' src = "https://i.postimg.cc/CKTH3kYj/Word-Weaver2logo.png"  alt = "" /></div>
+                <div id="navbarLinks-container">
                     <span className="greeting">So good to see you, {user.name}!</span>
                     <nav className="nav-bar">
                         <ul>
