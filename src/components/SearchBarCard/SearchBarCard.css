@@ -1,6 +1,6 @@
 .searchBar-card {
     position: relative;
-    width: 60%;
+    width: 20rem;
     height: 20%;
     background: rgb(33, 33, 33);
     background: linear-gradient(
@@ -123,6 +123,7 @@ label {
     padding: 0 8px;
     border-radius: 10px;
     border: 3px solid black;
+    margin: auto;
   }
   
   input[type=text]:focus {

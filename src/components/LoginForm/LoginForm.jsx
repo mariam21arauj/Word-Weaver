@@ -1,5 +1,5 @@
 // LoginForm.jsx
-
+import './LoginForm.css'
 import { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
 import { Navigate, useNavigate } from 'react-router-dom';
@@ -33,8 +33,9 @@ const navigate = useNavigate()
 
   return (
     <div>
-      <div className="form-container">
+      <div className="login-form-container">
         <form autoComplete="off" onSubmit={handleSubmit}>
+        <img id='loginLogo' className='drop' src = "https://i.postimg.cc/CKTH3kYj/Word-Weaver2logo.png"  alt = "" />
           <label>Email</label>
           <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
           <label>Password</label>
