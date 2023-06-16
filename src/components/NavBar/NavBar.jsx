@@ -12,15 +12,18 @@ export default function NavBar({ user, setUser }){
         <div>
             <div className="main-navBar">
                 <div><img id='loginLogo' className='drop' src = "https://i.postimg.cc/CKTH3kYj/Word-Weaver2logo.png"  alt = "" /></div>
-                <span className="greeting">So good to see you, {user.name}!</span>
-                <nav className="nav-bar">
-                    <ul>
-                        <li><Link to='' onClick={handleLogOut}>Log Out</Link>  </li>              
-                        <li><Link to="/">Main</Link></li>           
-                        <li><Link to='/dictionary'>Dictionary</Link></li>                
-                        <li><Link to='favorites'>Favorite Words</Link></li>
-                    </ul>
-                </nav>
+                <div>
+                    <span className="greeting">So good to see you, {user.name}!</span>
+                    <nav className="nav-bar">
+                        <ul>
+                            <li><Link to='' onClick={handleLogOut}>Log Out</Link>  </li>              
+                            <li><Link to="/">Main</Link></li>           
+                            <li><Link to='/dictionary'>Dictionary</Link></li>                
+                            <li><Link to='favorites'>Favorite Words</Link></li>
+                        </ul>
+                    </nav>
+                </div>
+                
             </div>
         </div>
     )
