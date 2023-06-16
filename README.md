@@ -56,6 +56,7 @@ Give a ⭐️ if this project helped you!
 ### Writing Journal functionality
 ### More information about each word.
 
+## Referenced Code:
 
 #### This project used code from the following sources: 
  https://codepen.io/P1N2O/pen/pyBNzX
