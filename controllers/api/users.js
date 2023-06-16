@@ -91,15 +91,29 @@ async function showFavoriteWords(req, res) {
 
 async function deleteFavoriteWord(req, res) {
   try {
-    const user = await User.findById(req.user._id).populate('favoriteWord');
-    const userFavoriteWordId = req.params.id;
-    await user.favoriteWord.id(userFavoriteWordId).remove();
-    await user.save();
-    res.json(user.favoriteWord);
+    const userId = req.user._id;
+    const user = await User.findById(userId);
+
+    const favoriteWordId = req.params.id;
+
+    // Find the index of the favorite word in the array
+    const favoriteWordIndex = user.favoriteWord.findIndex(
+      (word) => word._id.toString() === favoriteWordId
+    );
+
+    // Remove the favorite word from the array
+    if (favoriteWordIndex !== -1) {
+      user.favoriteWord.splice(favoriteWordIndex, 1);
+      await user.save();
+      res.json(user.favoriteWord);
+    } else {
+      res.status(404).json({ error: 'Favorite word not found' });
+    }
   } catch (error) {
     console.log(error);
     res.status(400).json({ error: error.message });
   }
 }
+
 
 
