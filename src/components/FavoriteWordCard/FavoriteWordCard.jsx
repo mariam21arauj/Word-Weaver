@@ -6,10 +6,12 @@ export default function FavoriteWordCard({ favoriteWord, onDelete }) {
   return (
     <div className='card-container'>
       <div className='card'>    
-        <div>Word: {word}</div>
-        <div>Definition: {definition}</div>
-        <div>Example: {example}</div>
-        <button onClick={onDelete}>Delete</button>
+        <div><span style={{fontWeight: 800 }}>Word:</span> {word}</div>
+        <hr></hr>
+        <div><span style={{fontWeight: 800 }}>Definition:</span> {definition}</div>
+        <hr></hr>
+        <div><span style={{fontWeight: 800 }}>Example:</span>: {example}</div>
+        <button style={{marginTop:20}} className='btn1' onClick={onDelete}>Delete</button>
       </div>
     </div>
   );

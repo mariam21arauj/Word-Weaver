@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import FavoriteWordForm from "../../components/FavoriteWordForm/FavoriteWordForm"
 import FavoriteWordListCard from "../../components/FavoriteWordList/FavoriteWordListCard"
 import { getToken } from "../../utilities/users-service";
+import './FavoriteWordsPage.css'
 
 
 export default function FavoriteWordsPage() {
@@ -29,11 +30,13 @@ export default function FavoriteWordsPage() {
     }, []);
     return (
     <div>
-        <h1>Add a New Favorite Word</h1>
-        <FavoriteWordForm setFavoriteWord={setFavoriteWord} />
-        <hr></hr>
-        <h2>Your Favorite Words</h2>
-        <FavoriteWordListCard favoriteWord={favoriteWord} />
+        <div>
+            <h1 id="addFavoriteWords-section">Add a New Favorite Word</h1>
+            <FavoriteWordForm setFavoriteWord={setFavoriteWord} />
+        </div>
+        <div id="favoriteWords-section">
+            <FavoriteWordListCard favoriteWord={favoriteWord} />
+        </div>
     </div>
     );
 }

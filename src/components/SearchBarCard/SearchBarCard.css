@@ -34,7 +34,7 @@
 .word {
     background-color:rgba(88, 67, 114, 0.398);
     width: 12rem;
-    height: 4rem;
+    height: 4%;
     margin: auto;
     margin-top: 40px;
     border-radius: 10%;
@@ -166,5 +166,4 @@ label {
     font-size: 1rem;
     border-radius: 0.25rem;
     /* transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out; */
-    margin: auto;
 }

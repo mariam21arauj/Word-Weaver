@@ -50,7 +50,7 @@ export default function FavoriteWordForm({setFavoriteWord}) {
 
     return(
         <form className="FavoriteWordForm" onSubmit={handleAddFavoriteWord}>
-            <label for='word'>Word:</label>
+            <label style={{fontWeight: 400}} for='word'>Word:</label>
             <input 
             type='text'
             name='word'
@@ -58,7 +58,7 @@ export default function FavoriteWordForm({setFavoriteWord}) {
             value={newFavoriteWord.word} 
             onChange={handleChange}
             ></input>
-            <label for='definition'>Definition:</label>
+            <label style={{fontWeight: 400}} for='definition'>Definition:</label>
             <input 
             type='text'
             name='definition'
@@ -66,7 +66,7 @@ export default function FavoriteWordForm({setFavoriteWord}) {
             value={newFavoriteWord.definition} 
             onChange={handleChange}
             ></input>
-            <label for='example'>Example:</label>
+            <label style={{fontWeight: 400}} for='example'>Example:</label>
             <input 
             type='text'
             name='example' 
