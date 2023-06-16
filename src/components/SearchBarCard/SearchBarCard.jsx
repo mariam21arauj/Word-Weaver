@@ -10,7 +10,7 @@ export default function SearchBarCard() {
     const handleSearch = async() => {
         try {
             const response = await fetch(
-                `http://127.0.0.1:3001/api/search/${searchQuery}`,
+                `https://word-weaver-araujo-7546dbbdd2c0.herokuapp.com/api/search/${searchQuery}`,
             );
             const data = await response.json();
             setSearchResults(data)
