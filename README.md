@@ -31,7 +31,7 @@ npm run test
 👤 **Mariam Elizabeth Araujo Betancourt**
 
 * Github: [mariam21arauj](https://github.com/mariam21arauj)
-* LinkedIn: [mariam-araujo-\/](https://linkedin.com/in/https:\/\/www.linkedin.com\/in\/mariam-araujo-\/)
+* LinkedIn: [mariam-araujo-\/](https://linkedin.com/in/mariam-araujo-/)
 
 ## Show your support
 
