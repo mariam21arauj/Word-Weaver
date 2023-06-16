@@ -20,7 +20,7 @@
 
 ### Main Page: <img width="1483" alt="Screenshot 2023-06-16 at 2 46 48 AM" src="https://github.com/mariam21arauj/Word-Weaver/assets/114562006/e4593502-002b-49b2-87bf-b3d8d1bbb8fe">
 
-## Get the code:
+## Get the code running:
 
 ### Install
 
