@@ -1,5 +1,5 @@
 import { checkToken } from "../../utilities/users-service";
-
+import './MainPage.css'
 export default function MainPage() {
   async function handleCheckToken() {
     const expDate = await checkToken();
@@ -9,7 +9,7 @@ export default function MainPage() {
   return (
     <div>
       <h1>Main Page</h1>
-      {/* <button onClick={handleCheckToken}>Check When My Login Expires</button> */}
+      <img className="mainpagepic" src="https://i.postimg.cc/Qxy7bZ5t/Mainpage-Word-Weaver.png" alt="" />
     </div>
   );
 }
