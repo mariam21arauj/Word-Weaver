@@ -1,7 +1,7 @@
-.card {
+.dictionary-card {
     position: relative;
-    width: 15em;
-    height: 25rem;
+    width: 20rem;
+    height: 20%;
     background: rgb(33, 33, 33);
     background: linear-gradient(
       162deg,
@@ -20,7 +20,7 @@
     color: white;
   }
 
-.card-container {
+.dictionary-card-container {
     display: inline-flex;
 }
 

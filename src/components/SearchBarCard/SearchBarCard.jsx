@@ -74,8 +74,8 @@ export default function SearchBarCard() {
                         if(result.examples && result.examples.length > 0){
                             return (
                                 <>
-                                <div className='card-container'>
-                                <div className='card' key={result.definition}> 
+                                <div className='dictionary-card-container'>
+                                <div className='dictionary-card' key={result.definition}> 
                                     <h3>Definition:</h3> 
                                     <p>{result.definition}</p>
                                     <h3>Part of Speech:</h3>
@@ -92,8 +92,8 @@ export default function SearchBarCard() {
                             if(!result.examples){
                                 return (
                                     <>
-                                        <div className='card-container'>
-                                            <div className='card' key={result.definition}>    
+                                        <div className='dictionary-card-container'>
+                                            <div className='dictionary-card' key={result.definition}>    
                                                 <h3>Definition:</h3> 
                                                 <p>{result.definition}</p>
                                                 <h3>Part of Speech:</h3>
