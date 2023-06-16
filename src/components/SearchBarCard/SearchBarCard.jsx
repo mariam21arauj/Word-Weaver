@@ -61,7 +61,7 @@ export default function SearchBarCard() {
                     />
                     <label  for = "radio2" className='selector-item_label'> Synonyms</label>
                 </div>
-                <button onClick={handleSearch}>Search</button>
+                <button className='btn1' id='searchbtn' onClick={handleSearch}>Search</button>
                 </div>
             </div>
             <div>
