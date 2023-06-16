@@ -11,6 +11,7 @@ router.post('/', usersCtrl.create);
 router.post('/login', usersCtrl.login);
 router.post('/favorite-word', ensureLoggedIn, usersCtrl.addFavoriteWord)
 router.get('/show-favorite-word', ensureLoggedIn, usersCtrl.showFavoriteWords)
+router.delete('/delete-favorite-word/:id', ensureLoggedIn, usersCtrl.deleteFavoriteWord)
 router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken);
 
 module.exports = router;

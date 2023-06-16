@@ -9,7 +9,8 @@ module.exports = {
     login,
     checkToken,
     addFavoriteWord,
-    showFavoriteWords
+    showFavoriteWords,
+    deleteFavoriteWord
   };
   
   // controllers/api/users.js
@@ -88,5 +89,17 @@ async function showFavoriteWords(req, res) {
   }
 }
 
+async function deleteFavoriteWord(req, res) {
+  try {
+    const user = await User.findById(req.user._id).populate('favoriteWord');
+    const userFavoriteWordId = req.params.id;
+    await user.favoriteWord.id(userFavoriteWordId).remove();
+    await user.save();
+    res.json(user.favoriteWord);
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ error: error.message });
+  }
+}
 
 
