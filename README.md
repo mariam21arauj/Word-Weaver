@@ -10,6 +10,7 @@
 ## This app was built with:
 
 ### Mongoose, Express, React, Node.js, JavaScript, CSS, HTML.
+### Check out the Trello board used to plan this project: https://trello.com/b/uLzXqMQI/word-weaver
 
 ## Take a peak:
 
