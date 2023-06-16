@@ -40,13 +40,13 @@ export default class SignUpForm extends Component {
           <img id='loginLogo' className='drop' src = "https://i.postimg.cc/CKTH3kYj/Word-Weaver2logo.png"  alt = "" />
 
             <form autoComplete="off" onSubmit={this.handleSubmit}>
-              <label>Name</label>
+              <label style={{fontWeight: 400}}>Name</label>
               <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
-              <label>Email</label>
+              <label style={{fontWeight: 400}}>Email</label>
               <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
-              <label>Password</label>
+              <label style={{fontWeight: 400}}>Password</label>
               <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
-              <label>Confirm</label>
+              <label style={{fontWeight: 400}}>Confirm</label>
               <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
               <button className='custom-btn' type="submit" disabled={disable}>SIGN UP</button>
             </form>

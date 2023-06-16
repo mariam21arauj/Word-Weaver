@@ -36,9 +36,9 @@ const navigate = useNavigate()
       <div className="login-form-container">
         <form autoComplete="off" onSubmit={handleSubmit}>
         <img id='loginLogo' className='drop' src = "https://i.postimg.cc/CKTH3kYj/Word-Weaver2logo.png"  alt = "" />
-          <label>Email</label>
+          <label style={{fontWeight: 400}}>Email</label>
           <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-          <label>Password</label>
+          <label style={{fontWeight: 400}}>Password</label>
           <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
           <button className='custom-btn' type="submit"><span>LOG IN</span></button>
         </form>
