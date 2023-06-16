@@ -1,0 +1,76 @@
+.signup-form-container {
+    position: relative;
+    height: 50%;
+    width: 50%;
+    font: 1em Arial;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, .25);
+    margin:auto;
+    padding: 2%;
+    margin-top: 5%;
+}
+
+.signup-form-container::before {
+    content: "";
+    position: absolute;
+    top: -8px; /* -blur */ 
+    left: -8px; /* -blur */
+    width: calc(100% + 16px); /* 100% + blur * 2 */
+    height: calc(100% + 16px); /* 100% + blur * 2 */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)); /* change color or image here */
+    background-position: 50%;
+    filter: blur(8px);
+    z-index: -1;
+}
+
+#loginLogo {
+    margin-bottom: 5%;
+}
+
+input[type=email] {
+    display: block;
+    width: 500px;
+    height: 40px;
+    padding: 0 8px;
+    border-radius: 10px;
+    border: 3px solid black;
+    margin: auto;
+  }
+  
+  input[type=email]:focus {
+    outline: none;
+    border: 3px solid transparent;
+    background-image: linear-gradient(white, white), linear-gradient(315deg, rgb(236, 160, 255), rgb(170, 178, 255), rgb(132, 255, 201));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    animation: bg-hue 2s linear infinite;
+  }
+  
+  /* @keyframes for the gradient animation */
+  @keyframes bg-hue {
+    100% {
+      filter: hue-rotate(360deg);
+    }
+  }
+
+.custom-btn {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    7px 7px 20px 0px rgba(0,0,0,.1),
+    4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+    margin: 20px ;
+}
